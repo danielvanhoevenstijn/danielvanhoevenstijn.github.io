@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify if your a human</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://js.prosopo.io/procaptcha.bundle.js" async defer></script>
     <script>
         function onCaptchaSuccess(output) {
          sessionStorage.setItem('captchaPassedTime', Date.now().toString());
          window.location.href = 'main.html';
         }
     </script>
-    <script src="https://js.prosopo.io/procaptcha.bundle.js" async defer></script>
 </head>
 <body>
 
