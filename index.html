@@ -6,12 +6,12 @@
     <title>Verify if your a human</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function onSuccess(token) {
-            sessionStorage.setItem('captchaPassed', 'true');
-            sessionStorage.setItem('captchaPassedTime', Date.now().toString());
-            window.location.href = "./main.html";
+        function onCaptchaSuccess(output) {
+         sessionStorage.setItem('captchaPassedTime', Date.now().toString());
+         window.location.href = 'main.html';
         }
     </script>
+    <script src="https://js.prosopo.io/procaptcha.bundle.js" async defer></script>
 </head>
 <body>
 
@@ -20,11 +20,11 @@
 <h1>Checking if your a human!</h1>
 
 <form method="POST">
-  <div class="h-captcha" 
-       data-sitekey="9af4ecf6-925e-49c8-9168-51feab3e6ba2" 
-       data-callback="onSuccess">
-  </div>  
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <div 
+    class="procaptcha" 
+    data-sitekey="5GeDM1yxXucnGSBAGr5YgJErqSWTAp9iZAGjSXcMdHMEe6Xi" 
+    data-callback="onCaptchaSuccess"
+  ></div>
 </form>
 
 <h1>------------</h1>  
