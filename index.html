@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify if your a human</title>
-    <link rel="stylesheet" href="style.css">
-            <script
-            type="module"
-            id="procaptcha-script"
-            src="https://js.prosopo.io/js/procaptcha.bundle.js"
-            async
-            defer
-        ></script>
-    <script nomodule src="https://js.prosopo.io/js/procaptcha.bundle.iife.js" async defer></script>
-    <script>
-        function onCaptchaSuccess(output) {
-         sessionStorage.setItem('captchaPassedTime', Date.now().toString());
-         window.location.href = 'main.html';
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify if you're a human</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script
+    type="module"
+    id="procaptcha-script"
+    src="https://js.prosopo.io/js/procaptcha.bundle.js"
+    async
+    defer
+  ></script>
+  <script nomodule src="https://js.prosopo.io/js/procaptcha.bundle.iife.js" async defer></script>
+  
+  <script>
+    function onCaptchaSuccess(output) {
+      sessionStorage.setItem('captchaPassedTime', Date.now().toString());
+      window.location.href = 'main.html';
+    }
+    window.onCaptchaSuccess = onCaptchaSuccess;
+  </script>
 </head>
 <body>
 
 <h1 style="background-color:Tomato;">Welcome to Daan's website</h1> 
 <h1>---------------------</h1>
-<h1>Checking if your a human!</h1>
+<h1>Checking if you're a human!</h1>
 
 <form method="POST">
   <div 
@@ -36,7 +39,7 @@
 </form>
 
 <h1>------------</h1>  
-<h1 style="background-color:Gray;">powered by github pages</h1>
+<h1 style="background-color:Gray;">Powered by github pages</h1>
 
 </body>
 </html>
