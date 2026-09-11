@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify if your a human</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="https://js.prosopo.io/js/procaptcha.bundle.js" async defer></script>
+            <script
+            type="module"
+            id="procaptcha-script"
+            src="https://js.prosopo.io/js/procaptcha.bundle.js"
+            async
+            defer
+        ></script>
     <script nomodule src="https://js.prosopo.io/js/procaptcha.bundle.iife.js" async defer></script>
     <script>
         function onCaptchaSuccess(output) {
@@ -23,6 +29,7 @@
 <form method="POST">
   <div 
     class="procaptcha" 
+    id="procaptcha-container"
     data-sitekey="5GeDM1yxXucnGSBAGr5YgJErqSWTAp9iZAGjSXcMdHMEe6Xi" 
     data-callback="onCaptchaSuccess"
   ></div>
