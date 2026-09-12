@@ -5,16 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verify if you're a human</title>
   <link rel="stylesheet" href="style.css">
-  
-  <script
-    type="module"
-    id="procaptcha-script"
-    src="https://js.prosopo.io/js/procaptcha.bundle.js"
-    async
-    defer
-  ></script>
-  <script nomodule src="https://js.prosopo.io/js/procaptcha.bundle.iife.js" async defer></script>
-  
+
   <script>
     function onCaptchaSuccess(output) {
       sessionStorage.setItem('captchaPassedTime', Date.now().toString());
@@ -22,24 +13,40 @@
     }
     window.onCaptchaSuccess = onCaptchaSuccess;
   </script>
+
+  <script src="https://js.prosopo.io/js/procaptcha.bundle.js" async defer></script>
 </head>
 <body>
 
-<h1 style="background-color:Tomato;">Welcome to Daan's website</h1> 
-<h1>---------------------</h1>
-<h1>Checking if you're a human!</h1>
+  <h1 style="background-color:Tomato;">Welcome to Daan's website</h1> 
+  <h1>---------------------</h1>
+  <h1>Checking if you're a human!</h1>
 
-<form method="POST">
-  <div 
-    class="procaptcha" 
-    id="procaptcha-container"
-    data-sitekey="5GeDM1yxXucnGSBAGr5YgJErqSWTAp9iZAGjSXcMdHMEe6Xi" 
-    data-callback="onCaptchaSuccess"
-  ></div>
-</form>
+  <form method="POST" onsubmit="return false;">
+    <div 
+      class="procaptcha" 
+      id="procaptcha-container"
+      data-sitekey="5GeDM1yxXucnGSBAGr5YgJErqSWTAp9iZAGjSXcMdHMEe6Xi" 
+      data-callback="onCaptchaSuccess"
+    ></div>
+  </form>
 
-<h1>------------</h1>  
-<h1 style="background-color:Gray;">Powered by github pages</h1>
+  <h1>------------</h1>  
+  <h1 style="background-color:Gray;">Powered by github pages</h1>
+
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var container = document.getElementById('procaptcha-container');
+        if (container && container.children.length === 0 && window.procaptcha) {
+          window.procaptcha.render(container, {
+            siteKey: '5GeDM1yxXucnGSBAGr5YgJErqSWTAp9iZAGjSXcMdHMEe6Xi',
+            callback: window.onCaptchaSuccess
+          });
+        }
+      }, 1000);
+    });
+  </script>
 
 </body>
 </html>
